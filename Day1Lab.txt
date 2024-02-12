@@ -1,3 +1,59 @@
+Lab4 - accept two strings and swap them 
+
+Lab3 - Lab3.go - variables, multiple returns 
+        package main
+        import "fmt"
+        func hello(){
+        	fmt.Println("hello func invoked ...")
+        }
+        func sqr (no1 int) int {
+        	return no1*no1
+        }
+        
+        func calc (no1 int, no2 int) (int, int) {
+        	return no1+no2, no1*no2
+        }
+        
+        func add (no1 int, no2 int) int {
+        	return no1+no2
+        }
+        func mult (no1 int, no2 int) int {
+        	return no1*no2
+        }
+        func main(){
+        	var no1 = 100
+        	no2 := 200
+        	fmt.Println("Sum = " , no1+no2)
+        	hello()
+        	ans := sqr(20)
+        	fmt.Println("SQR of 20 is ", ans)
+        	fmt.Println("Sum of 10, 1000 is " , add(10, 1000))
+        	fmt.Println("Multiplication of 10, 1000 is " , mult(10, 1000))
+        	s, m := calc(10,20)
+        	fmt.Println(" Sum = " , s , " Multiplication = " , m)
+        
+        }
+Lab2 - Lab2.go -> variable declaration on single line, no new variable for :=
+        package main
+        import "fmt"
+        
+        func main(){
+        	//var name = "Vaishali"
+        	//name := "Vaishali"
+        	//sal := 100
+        	name , sal :=  "Vaishali", 100
+        	fmt.Println("My Name is ", name , " and Salary is " , sal)
+        	fmt.Printf("My Name is %s and Salary is %d ", name, sal)
+        
+        	//name := "Inder"
+        	//sal := 200
+        	name , salary :=  "Inder", 200
+        	fmt.Println("\nMy Name is ", name , " and Salary is " , salary)
+        	fmt.Printf("My Name is %s and Salary is %d ", name, salary)
+        
+        
+        }
+
 Lab1 - create a folder c:\...\Day1
         create a file Lab1.go in day1
             package main
@@ -11,3 +67,9 @@ Lab1 - create a folder c:\...\Day1
       modify method main to demo
       { on next line
       comment fmt to see unused import error
+    cmd>go build Lab1.go 
+                (check dir to see Lab1.exe on windows os)
+   cmd>set GOOS=linux
+   cmd>go build Lab1.go 
+                (check dir to see Lab1.exe on windows os)
+
