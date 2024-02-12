@@ -1,3 +1,53 @@
+Lab7 - 
+        1. https://go.dev/tour/flowcontrol/1 (for, if)
+        2. https://pkg.go.dev/fmt#Scan
+        3. check docs for os 
+        Accept a number from user and print Fibonacci series till that number
+       Accept 5 strings from user and sort and print the same
+
+Lab6 - lab6 ( 2 different files for same package)
+                try compiling single file
+                go run Lab6.go Lab6Helper.go 
+                go fmt
+                
+        Lab6.go 
+                package main
+                import "fmt"
+                
+                func main(){
+                	str1, str2 := "String1", "String2"
+                	v1, v2:= swap(str1, str2)
+                	fmt.Println("V1 = ", v1, " , V2 = " , v2) 
+                	a1,a2,a3,a4 := calc(1000,10)
+                	fmt.Println("Calculations are ", a1 , ", ", a2, ", ",a3 , ", ",a4 )
+                }
+        Lab6Helper.go 
+                package main
+
+                func swap(name1, name2 string) (string, string) {
+                	return name2, name1
+                }
+                func calc (no1 int, no2 int) (sum, sub, mult, div int) {
+                	sum, sub, mult, div =  no1+no2, no1-no2, no1*no2, no1/no2
+                	return
+                }
+Lab5 - Lab5.go - check os docs(https://pkg.go.dev/os)
+                 observe len function for array/string
+        package main
+        import (
+        	"fmt"
+        	"os"
+        )
+        /*
+        import "fmt"
+        import "os"
+        */
+        func main(){
+        	fmt.Println(os.Args)
+        	fmt.Println("Length = " , len(os.Args))
+        	fmt.Println("Length of second argument = " , len(os.Args[1]))
+        	
+        }
 Lab4 - accept two strings and swap them 
         package main
         import "fmt"
