@@ -1,3 +1,39 @@
+Asgn -> Create a struct Emp -> Empno int, Ename String, Salary int64
+                                create a incrSalary(int percent) function
+                                create a print method
+        Create array of 5 Emps, Accept input from user(empno, ename, salary) -> accept a single line (1 AAA 1111)
+                
+Lab14 - Array
+        package main
+        import "fmt"
+        func main() {
+        	primes := [6]int{2, 3, 5, 7, 11, 13}
+        	fmt.Println(primes)
+        	fmt.Println(len(primes))
+        	primes[1]=3333
+        	fmt.Println(primes)
+        }
+Lab13 - Lab6 - receiver functions
+        package main
+        import "fmt"
+        type point struct{
+        	x int
+        	y int
+        }
+        func (p *point) shift( dx int, dy int)  {
+        	 p.x += dx
+        	 p.y += dy
+        	}
+        func (p point) printPoint() {
+        	fmt.Printf("Coordinates: x = %d, y = %d", p.x, p.y)
+        }
+        func main() {
+        	v1 := point{x:4, y:6}
+        	fmt.Println(v1)
+        	v1.shift( 1,1)
+        	fmt.Println(v1)
+        	v1.printPoint()
+        }
 
 Lab12 - Lab5 - struct
         package main
