@@ -1,3 +1,49 @@
+Lab9 - Demo2/Lab2  -> panic and recover
+        package main
+        import "fmt"
+        func main() {
+                defer myrecovery()
+                process()
+                fmt.Println("Last line of main method")
+        }
+        func myrecovery(){
+                r:= recover()
+                fmt.Println("Recover = " , r)
+        }
+        
+        func process(){
+                for i:=0;i<5;i++{
+                        fmt.Println("Process - ", i)
+                        if i == 3 {
+                                panic("Some Problem...")
+                        }
+                }
+        }
+
+Lab8 - Demo2/Lab1 -> defer (evaluation / multiple defers)
+        package main
+        import "fmt"
+        func main() {
+        	i := 0
+        	defer fmt.Println("Hello " , i)   // evaluation happens here
+        	fmt.Println("World ")
+        	help1()
+        	help2()
+        }
+        
+        func help1(){
+        	defer fmt.Println("defer of help1 ")
+        	fmt.Println("help1 - 1")
+        	fmt.Println("help1 - 2")
+        }
+        func help2(){
+        	for i:=0;i<5;i++{
+        		defer fmt.Println("help2 - ", i)
+        	}
+        }
+
+        
+
 Lab7 - 
         1. https://go.dev/tour/flowcontrol/1 (for, if)
         2. https://pkg.go.dev/fmt#Scan
