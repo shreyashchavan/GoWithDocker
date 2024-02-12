@@ -1,0 +1,13 @@
+Lab1 - create a folder c:\...\Day1
+        create a file Lab1.go in day1
+            package main
+            import "fmt"
+            func main() {
+              fmt.Println("Hello World !!")
+            }
+     cmd>go run Lab1.go
+     Modify and watch error
+      modify package name to demo
+      modify method main to demo
+      { on next line
+      comment fmt to see unused import error
