@@ -1,3 +1,70 @@
+
+Lab12 - Lab5 - struct
+        package main
+        import "fmt"
+        type point struct{
+        	x int
+        	y int
+        }
+        func main() {
+        	v1 := point{}
+        	fmt.Println(v1)
+        	v1 = point{1,5}
+        	fmt.Println(v1)
+        	v1 = point{x:1}
+        	fmt.Println(v1)
+        	v1 = point{y:5}
+        	fmt.Println(v1)
+        	v1 = point{x:4, y:6}
+        	fmt.Println(v1)
+        }
+        write 2 functions -> 1. Shift to accept 2 input params and shift point with dx and dy
+                             2. Print points x and y coordinates
+
+Lab11 - Lab4 (Pointer, methods parameters as by value)
+        package main
+        import "fmt"
+        func incr(i *int){
+        	*i = *i + 1
+        	fmt.Println("in incr "  , i )
+        }
+        func main() {
+        	i := 42
+        	p := &i
+        	fmt.Println("i = " , i , " and P = ", p)
+        	incr(p)
+        	fmt.Println("i = " , i , " and P = ", p)
+        	incr(p)
+        	
+        }
+
+Lab10 - Demo2/Lab3 - passing function as input/output and closures
+        package main
+        import "fmt"
+        // pass function as input/output argument
+        func hello(fn func() string ){
+        	fmt.Println("hello invoked with " , fn())
+        }
+        func ab() string{
+        	return "abc"
+        }
+        func sum() func(int) int {
+        	counter:=0
+        	return func(x int) int {
+        		counter += x
+        		return counter
+        	}
+        }
+        func main() {
+        	hello(ab)
+        	fn := sum()
+        	fmt.Println(fn)
+        	fmt.Println("fn of 10 returned ", fn(10))
+        	fmt.Println("fn of 10 returned ", fn(10))
+        	fmt.Println("fn of 10 returned ", fn(10))
+        	fmt.Println("fn of 10 returned ", fn(10))
+        }
+
 Lab9 - Demo2/Lab2  -> panic and recover
         package main
         import "fmt"
