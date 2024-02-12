@@ -1,4 +1,21 @@
 Lab4 - accept two strings and swap them 
+        package main
+        import "fmt"
+        
+        func swap(name1, name2 string) (string, string) {
+        	return name2, name1
+        }
+        func calc (no1 int, no2 int) (sum, sub, mult, div int) {
+        	sum, sub, mult, div =  no1+no2, no1-no2, no1*no2, no1/no2
+        	return
+        }
+        func main(){
+        	str1, str2 := "String1", "String2"
+        	v1, v2:= swap(str1, str2)
+        	fmt.Println("V1 = ", v1, " , V2 = " , v2) 
+        	a1,a2,a3,a4 := calc(1000,10)
+        	fmt.Println("Calculations are ", a1 , ", ", a2, ", ",a3 , ", ",a4 )
+        }
 
 Lab3 - Lab3.go - variables, multiple returns 
         package main
