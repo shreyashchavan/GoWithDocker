@@ -1,3 +1,41 @@
+Lab14 - Demo5/Lab5
+      package main
+      import (
+      	"fmt"
+      	"time"
+      	"sync"
+      )
+      var total = 0
+      func main(){
+      	var mux sync.Mutex
+      	go deposit(&mux)
+      	go widraw(&mux)
+      	time.Sleep(3500 * time.Millisecond)
+      	fmt.Println("Final Total = " , total)
+      }
+      func deposit(mux *sync.Mutex){
+      	for i:=0; i< 100;i++{
+      		mux.Lock()
+      		bal:= total
+      		bal++
+      		time.Sleep(10 * time.Millisecond)
+      		total = bal
+      		mux.Unlock()
+      	}
+      	fmt.Println("Done Deposit ", total)
+      }
+      func widraw(mux *sync.Mutex){
+      	for i:=0; i< 100;i++{
+      		mux.Lock()
+      		bal:= total
+      		bal--
+      		time.Sleep(10 * time.Millisecond)
+      		total = bal
+      		mux.Unlock()
+      	}
+      	fmt.Println("Done Widraw ", total)
+      }
+     
 Lab13 - Demo5/Lab4
       Create a function read -> from channel
       create a function write  -> to channel
@@ -6,6 +44,31 @@ Lab13 - Demo5/Lab4
             1. Have two reads-> check deadlock
             2. Have two writes -> check deadlock
             3. Have 3 reads/writes
+       package main
+             
+            import "fmt"
+            import "strconv" 
+            func main() {
+            	ch := make(chan string)
+            	go read(ch)
+            	go write("Blr", ch)
+             	//fmt.Println("waiting for some data from channel")
+            	for {}
+            }
+            func read(ch chan string) {
+            	fmt.Println("Reading data from channel")
+            	for msg := range ch	{
+            	fmt.Println("Data from channel ", msg)
+            	}
+            	fmt.Println("Reading Done !!")
+            }
+             
+            func write(str string, ch chan string) {
+            	for i:=1; i<= 3;i++{
+            		fmt.Println("Writing data to channel" , i )
+            		ch <- str + strconv.Itoa(i) + " done !! "
+            	}
+            }
 Lab12 - Demo5/Lab3
       package main
       
