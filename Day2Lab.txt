@@ -1,3 +1,6 @@
+Download location of libraries to c:\tmp 
+
+
 Lab15 - Create new directory - Demo6      
             Check / Search database driver on https://pkg.go.dev/
             Write Lab1.go
