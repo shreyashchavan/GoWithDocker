@@ -1,3 +1,37 @@
+Lab13 - Demo5/Lab4
+      Create a function read -> from channel
+      create a function write  -> to channel
+      main method to start 
+            read and write and print the data received
+            1. Have two reads-> check deadlock
+            2. Have two writes -> check deadlock
+            3. Have 3 reads/writes
+Lab12 - Demo5/Lab3
+      package main
+      
+      import "fmt"
+      
+      func main(){
+      	ch := make(chan string)
+      	go helper("Pnq", ch)
+      	go helper("Blr", ch)
+      	go helper("Hyd", ch)
+      	fmt.Println("waiting for some data from channel")
+      	v:= <-ch
+      	fmt.Println("got data from channel ", v)
+      	v= <-ch
+      	fmt.Println("got data from channel ", v)
+      	v= <-ch
+      	fmt.Println("got data from channel ", v)
+      
+      }
+      func helper(str string, ch chan string){
+      	for i:=1; i< 60;i++{
+      		fmt.Print(str , i , " ")
+      	}
+      	ch <- str + " done !! "
+      }
+
 Lab11 - Demo5/Lab2 
       -> modify current code to stop go routines when any one go routine gets over
       package main
