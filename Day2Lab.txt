@@ -1,3 +1,57 @@
+Lab7 - lab3.go 
+        Copy Lab1.go and use json deserialization to show email address of user
+Lab6 - json  - Lab2.go
+        package main
+        import (
+        	"fmt"
+        	"encoding/json"
+        ) 
+         
+        type Emp struct {
+        	Empno  int    `json:"empnumber"`
+        	Ename  string `json:"empname"`
+        	Salary int    `json:"empsalary"`
+        }
+        func main(){
+        	//func Marshal(v any) ([]byte, error)
+        	emp := Emp{1, "One",111}
+        	bytes, err := json.Marshal(emp)
+        	fmt.Println(string(bytes) , " , " , err)
+        	emp1 := Emp{}
+        	err = json.Unmarshal(bytes, &emp1) 
+        	fmt.Println(emp1)
+        
+        	fmt.Println(err)
+        }
+Lab5 - Demo4/Lab1 - http get
+        package main
+        
+        import (
+        	"fmt"
+        	"net/http"
+        	"io"
+        )
+        
+        func main() {
+        	resp, err := http.Get("https://reqres.in/api/users/1")
+        	fmt.Println("Response = ", resp, " Error = ", err)
+        	if err != nil {
+        		fmt.Println("Error - ", err)
+        		return
+        	}
+        	defer resp.Body.Close()
+        	fmt.Println("Status = " , resp.Status)
+        	fmt.Println("Body = " , resp.Body)
+        	
+        	body, err := io.ReadAll(resp.Body)
+        	if err != nil {
+        		fmt.Println("Readall Error - ", err)
+        		return
+        	}
+        	fmt.Println("Body ", string(body))
+        }
+
+
 Lab4 - create interface -> Display with method Print 
         Using Emp (empno, ename, salary)-> implement Print method
         Create object and invoke method usign interface variable
