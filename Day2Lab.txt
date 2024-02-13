@@ -1,3 +1,27 @@
+Lab15 - Create new directory - Demo6      
+            Check / Search database driver on https://pkg.go.dev/
+            Write Lab1.go
+                  package main
+                  import (
+                  	"database/sql"
+                  	_ "github.com/lib/pq"
+                  	"log"
+                  )
+                  
+                  func main(){
+                  	connStr := "user=pqgotest dbname=pqgotest sslmode=verify-full"
+                  	db, err := sql.Open("postgres", connStr)
+                  	if err != nil {
+                  		log.Fatal(err)
+                  	}
+                  
+                  	age := 21
+                  	rows, err := db.Query("SELECT name FROM users WHERE age = $1", age)
+                  }
+      Modify library name and connection string according your database
+      go mod init ..
+      go mod tidy
+
 Lab14 - Demo5/Lab5
       package main
       import (
