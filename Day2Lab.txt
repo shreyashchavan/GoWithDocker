@@ -1,3 +1,36 @@
+Lab4 - create interface -> Display with method Print 
+        Using Emp (empno, ename, salary)-> implement Print method
+        Create object and invoke method usign interface variable
+        
+Lab3 - Lab3.go 
+        package main
+        import "fmt"
+        
+        type Connection interface{
+        	open()
+        	close()
+        }
+        
+        type OracleConnection struct{
+        }
+        
+        func (c OracleConnection) open(){
+        	fmt.Println("Open implemented ")
+        }
+        func (c OracleConnection) close(){
+        	fmt.Println("Close implemented ")
+        }
+        
+        func main() {
+        	var con Connection
+        	oracon := OracleConnection{}
+        	fmt.Println("Con and OracCon created", con , oracon )
+        	con = oracon
+        	con.open()
+        	con.close()
+        	
+        }
+
 Lab2 - Append / Make for slice 
     package main
     import "fmt"
@@ -21,7 +54,7 @@ Lab2 - Append / Make for slice
     	fmt.Println(a , " len = " , len(a), ", cap = " , cap(a)) 
     }
 
-Lab1 - Slice from array
+Lab1 - Demo3/Lab1, Slice from array
   package main
   import "fmt"
   func main() {
