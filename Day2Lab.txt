@@ -1,3 +1,52 @@
+Lab11 - Demo5/Lab2 
+      -> modify current code to stop go routines when any one go routine gets over
+      package main
+      
+      import (
+      	"fmt"
+      	"time"
+      )
+      
+      func main() {
+      	go helper("-")
+      	go helper("*")
+      	go helper("x")
+      	fmt.Println("main closing")
+      	time.Sleep(100 * time.Millisecond)
+      	/// stopping main from closing
+      	/*
+      		1. Sleep
+      		2. Ask for some input
+      		3. for {}
+      	*/
+      }
+      func helper(str string) {
+      	for i := 1; i < 1000; i++ {
+      		fmt.Print(str, " ")
+      	}
+      }
+
+
+Lab10 - Demo5/Lab1 - go routines
+        package main
+        import "fmt"
+        func main(){
+        	go helper("hello")
+        	go helper("world")
+        	fmt.Println("main closing")
+        	for{}
+        	/// stopping main from closing
+        	/*
+        		1. Sleep
+        		2. Ask for some input
+        		3. for {}
+        	*/
+        }
+        func helper(str string){
+        	for i:=1; i< 100;i++{
+        		fmt.Print(str , i , " ")
+        	}
+        }
 Lab 9 - modify Lab3.go to create logs(https://pkg.go.dev/log)
                 Write log in a file (demo.log)
 Lab8 - Lab3.go
