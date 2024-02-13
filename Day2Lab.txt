@@ -1,4 +1,30 @@
-Lab7 - lab3.go 
+Lab 9 - modify Lab3.go to create logs(https://pkg.go.dev/log)
+                Write log in a file (demo.log)
+Lab8 - Lab3.go
+        package main
+        import (
+        	"fmt"
+        	"github.com/magiconair/properties"
+        )
+        
+        func main() {
+        	// init from a file
+        	p := properties.MustLoadFile("my.properties", properties.UTF8)
+        	host := p.MustGetString("host")
+        	port := p.GetInt("port", 8080)
+        	fmt.Println(host , " ,  ", port)
+        }
+        Create my.properties in same folder
+                host=localhost
+                port=8080
+        cmd>go run lab3.go 
+                module/non availability
+        cmd>go mod init mydemo3
+                observe go.mod file
+        cmd>go mod tidy
+                observe go.sum file (also see changes go.mod)
+        run lab3
+Lab7 - lab.go 
         Copy Lab1.go and use json deserialization to show email address of user
 Lab6 - json  - Lab2.go
         package main
