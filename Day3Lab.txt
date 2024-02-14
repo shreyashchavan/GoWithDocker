@@ -1,3 +1,64 @@
+Lab3 - Demo8/Lab1
+	package main
+	import "fmt"
+	
+	func sqr (no1 int) int {
+		// http get
+		return no1*no1
+	}
+	func add (no1 int, no2 int) int {
+		return no1+no2
+	}
+	func div (no1 int, no2 int) int {
+		return no1/no2
+	}
+	func main(){
+		ans := sqr(20)
+		fmt.Println("SQR of 20 is ", ans)
+		fmt.Println("Sum of 10, 1000 is " , add(10, 1000))
+		fmt.Println("Division of 100, 10 is " , div(100, 10))
+	}
+	Lab1_test.go
+		package main
+		import "testing"
+		
+		func TestSqr(t *testing.T) {
+			got := sqr(10)
+			if got != 100 {
+				t.Errorf("Sqr(10) = %d; want 100", got)
+			}
+		}
+		
+		func TestAdd(*testing.T) {
+		
+		}
+		func TestDiv1(t *testing.T) {
+			got := div(10, 5)
+			if got != 2 {
+				t.Errorf("div(10,5) = %d; want 2", got)
+			}
+		}
+		func TestDiv2(t *testing.T) {
+			defer func() {
+				if r := recover(); r == nil {
+					t.Errorf("Div of 10,0 should raise panic")
+				}
+			}()
+			div(10, 0)
+		}
+		
+		func BenchmarkSqr(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				sqr(i)
+			}
+		}
+	cmd>go test .  // will give error, create mod file
+	cmd>go test . -v 
+	cmd>go test . -v -cover 
+	cmd>go test . -v -cover -coverprofile simplecover.out
+	cmd>go tool cover -html=simplecover.out -o htmlout.html│
+	cmd>go test . -v -bench . 
+
 Lab2 - 
 // CRUD operation on Emp
 	package main 
