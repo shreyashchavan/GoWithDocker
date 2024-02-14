@@ -1,3 +1,44 @@
+Lab2 - 
+	// CRUD operation on Emp
+	package main 
+	 
+	import "fmt"
+	 
+	type Emp struct {
+	    Empno   int
+	    Empname string
+	    Salary  int64
+	}
+	
+	func (emp *Emp) incrementSalary(percent int) {
+	    emp.Salary += ((emp.Salary * int64(percent)) / 100)
+	}
+	func (emp Emp) print() {
+	    fmt.Printf("\nEmpno: %d \tName : %s, \tSalary : %d",emp.Empno, emp.Empname, emp.Salary)
+	}
+	type EmpMgr struct {
+		emparr []Emp = make([]Emp, 0)
+	} 
+	func (empmgr *EmpMgr) add(emp Emp) {
+	    fmt.Println("empmgr add with " , emp)
+		emparr = append(emparr, emp)
+	}
+	func (empmgr EmpMgr) print() {
+		// modify range
+		for i := 0; i < len(empmgr.emparr); i++ {
+			empmgr.emparr[i].print()	
+		}
+	 
+	}
+	
+	func main() {
+		// create instance of empmgr
+		// for loop for 5 
+			create emp, add 
+	
+		// print fo empmgr
+	
+	}
 Check -> google -> docker playground, start-> create vm
 			docker run hello-world 
 			docker ps -a 
