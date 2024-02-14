@@ -1,0 +1,25 @@
+Lab1 - Demo7/Lab1.go
+    package main
+    
+    import (
+    	"fmt"
+    	"net/http"
+    )
+    func main(){
+    	http.HandleFunc("/bar", bar)
+    	http.HandleFunc("/", index)
+    	
+    	http.ListenAndServe(":8080", nil)
+    }
+    
+    func index (w http.ResponseWriter, r *http.Request) {
+    	w.Write([]byte("Hello World of Index Page!!"))
+    }
+    
+    func bar(w http.ResponseWriter, r *http.Request) {
+    	fmt.Fprintln(w, "Hello,", r.URL.Path)
+    }
+LabRef - MicroServices
+    https://martinfowler.com/articles/microservices.html
+    https://medium.com/edureka/microservice-architecture-5e7f056b90f1
+  
