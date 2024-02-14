@@ -1,3 +1,41 @@
+Lab4 - https://go.dev/doc/tutorial/create-module
+	Create a folder libraryDemo
+	Create a folder libraryDemo\mylib
+	Create a folder libraryDemo\uselib
+	create a file calc1.go in mylib
+		package calc
+		func Sqr(no1 int) int {
+			return no1 * no1
+		}
+	create a file calc2.go in mylib
+		package calc
+		func Add(no1 int, no2 int) int {
+			return no1 + no2
+		}
+		func Div(no1 int, no2 int) int {
+			return no1 / no2
+		}
+	cmd\librarydemo>go mod init mylibdemo
+	cmd\librarydemo>go mod tidy
+
+	create a file Lab1.go in uselib
+		package main
+		import (
+			"fmt"
+			"abc.com/mylibdemo"
+		)
+		func main(){
+			s := calc.Sqr(10)
+			fmt.Println("Sqr of 10 is ", s)
+			s = calc.Add(10,1000)
+			fmt.Println("Add = ", s)
+			s = calc.Div(10,2)
+			fmt.Println("Div is ", s)
+		}
+	cmd\uselib>go mod edit -replace abc.com/mylibdemo=../mylib
+	cmd\uselib>go mod tidy
+	cmd\uselib>go run Lab1.go
+
 Lab3 - Demo8/Lab1
 	package main
 	import "fmt"
