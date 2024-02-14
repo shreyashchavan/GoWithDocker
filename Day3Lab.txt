@@ -1,8 +1,11 @@
 Lab2 - 
-	// CRUD operation on Emp
+// CRUD operation on Emp
 	package main 
 	 
-	import "fmt"
+	import (
+		"fmt"
+		"strconv"
+	)
 	 
 	type Emp struct {
 	    Empno   int
@@ -17,11 +20,11 @@ Lab2 -
 	    fmt.Printf("\nEmpno: %d \tName : %s, \tSalary : %d",emp.Empno, emp.Empname, emp.Salary)
 	}
 	type EmpMgr struct {
-		emparr []Emp = make([]Emp, 0)
+		emparr []Emp 
 	} 
 	func (empmgr *EmpMgr) add(emp Emp) {
 	    fmt.Println("empmgr add with " , emp)
-		emparr = append(emparr, emp)
+		empmgr.emparr = append(empmgr.emparr, emp)
 	}
 	func (empmgr EmpMgr) print() {
 		// modify range
@@ -32,13 +35,18 @@ Lab2 -
 	}
 	
 	func main() {
+		
 		// create instance of empmgr
-		// for loop for 5 
-			create emp, add 
-	
+		empmgr := EmpMgr{}
+		for i := 0; i < 5; i++ {
+			emp := Emp {i, "Ename"+ strconv.Itoa(i), int64(i * 100)}
+			empmgr.add(emp)
+			 
+		}
 		// print fo empmgr
-	
+			empmgr.print()
 	}
+
 Check -> google -> docker playground, start-> create vm
 			docker run hello-world 
 			docker ps -a 
