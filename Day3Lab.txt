@@ -1,3 +1,11 @@
+Lab1Extension - Modify 
+    func index (w http.ResponseWriter, r *http.Request) {
+	    io.WriteString(w,"<h1>Hello World of Index Page!!</h1>" )
+	    io.WriteString(w, "Method = "+ r.Method)
+    }
+    Write 4 different functions to handler get/post/put and delete requests
+
+
 Lab1 - Demo7/Lab1.go
     package main
     
