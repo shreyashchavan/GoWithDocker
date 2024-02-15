@@ -1,3 +1,34 @@
+Lab5 - Lambda 
+      Create a file hello.go
+            package main
+
+            import (
+            	"context"
+            	"fmt"
+            	"github.com/aws/aws-lambda-go/lambda"
+            )
+            
+            type MyEvent struct {
+            	Name string `json:"name"`
+            }
+            
+            func HandleRequest(ctx context.Context, event *MyEvent) (*string, error) {
+            	if event == nil {
+            		return nil, fmt.Errorf("received nil event")
+            	}
+            	message := fmt.Sprintf("Hello %s!", event.Name)
+            	return &message, nil
+            }
+            
+            func main() {
+            	lambda.Start(HandleRequest)
+            }
+      cmd>create mod, tidy 
+      cmd>set GOOS=linux
+      cmd>go run hello.go 
+      create zip of hello.go (build-lambda-zip)
+      AWS Console -> create a lambda function, custom - linux, create function, upload code 
+
 Lab4 - accept s3 bucketname as argument and create the bucket.
       s3create.go
 Lab3 - AWS setup for go
