@@ -1,5 +1,5 @@
 Lab5 - Lambda 
-      Create a file hello.go
+      Create a file bootstrap.go
             package main
 
             import (
@@ -25,8 +25,10 @@ Lab5 - Lambda
             }
       cmd>create mod, tidy 
       cmd>set GOOS=linux
-      cmd>go run hello.go 
-      create zip of hello.go (build-lambda-zip)
+      cmd>set GOARCH=amd64
+      cmd>set CGO_ENABLED=0
+      cmd>go build .
+            create zip of boostrap (build-lambda-zip)
       AWS Console -> create a lambda function, custom - linux, create function, upload code 
 
 Lab4 - accept s3 bucketname as argument and create the bucket.
