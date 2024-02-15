@@ -1,3 +1,19 @@
+Lab2 - AWS Setup
+      Create a user in aws (iam), with s3fullaccess, generate security credentials, download csv
+      cmd>aws configure
+            give details of id, secret, region, no input for format 
+      else if you dont have aws cli installed
+            create two files in folder c:\users\{username}\.aws 
+            credentials
+                  [default]
+                  aws_access_key_id = ...
+                  aws_secret_access_key = ...
+            config
+                  [default]
+                  region = us-east-1
+      cmd> aws s3 ls 
+            empty/no error 
+
 Lab1- Docker playground
       $>mkdir test
       $> cd test 
