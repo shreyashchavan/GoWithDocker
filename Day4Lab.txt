@@ -1,3 +1,20 @@
+Lab6 - AWS Console 
+	lambda - https://aws.amazon.com/tutorials/run-serverless-code/
+	https://4sysops.com/archives/writing-an-aws-lambda-function-using-go-golang/
+	
+	
+	lambda, create function, test1, nodejs20.x, 
+	Create function
+	
+	Function Overview -> add trigger
+		API Gateway -> Create a new API, rest api,
+			security - open
+			add
+	Click on API gateway
+		copy api endpoint 
+	invoke it from browser/postman...
+
+
 Lab5 - Lambda 
       Create a file bootstrap.go
             package main
