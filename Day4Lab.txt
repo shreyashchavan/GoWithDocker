@@ -1,0 +1,47 @@
+Lab1- Docker playground
+      $>mkdir test
+      $> cd test 
+      $>echo " " > dockerfile
+      $>echo " " > web.go
+     click on editor to modify files
+    web.go   
+          package main
+          import (
+          	"fmt"
+          	"net/http"
+          	"io"
+          )
+          func main(){
+          	http.HandleFunc("/bar", bar)
+          	http.HandleFunc("/", index)
+          	fmt.Println("Starting Server on 8080...")
+          	http.ListenAndServe(":8080", nil)
+          	
+          }
+          
+          func index (w http.ResponseWriter, r *http.Request) {
+          	io.WriteString(w,"<h1>Hello World of Index Page!!</h1>" )
+          	io.WriteString(w, "Method = "+ r.Method)
+          
+          }
+   dockerfile
+    FROM golang
+    COPY web.go .
+    RUN go build ./web.go
+    EXPOSE 8080
+    CMD ./web
+  $>docker build -t webgos .
+  $>docker run -P -d webgos
+  $>docker run -P -d webgos
+    click on the ports on url  if not
+            docker ps 
+            click on open port (give port number shown for that container)
+
+
+
+          func bar(w http.ResponseWriter, r *http.Request) {
+          	fmt.Fprintln(w, "Hello,", r.URL.Path)
+          }
+          
+
+  
